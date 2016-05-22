@@ -434,9 +434,9 @@ With these settings PhpStorm will not mark Latte attributes as errors.
 
 Instructions for Sublime Text 3 (should work on 2 too):
 
-- Install Nette + Latte + Neon package
-- Install Smarty package
-- Set **latte** extension to open as **smarty** so you can keep the HTML code autcomplete working
+- Install [Nette + Latte + Neon](https://github.com/FilipStryk/Nette-Latte-Neon-for-Sublime-Text-3) package
+- Install [Smarty](https://github.com/amitsnyderman/sublime-smarty) package
+- Set **latte** extension to open as **smarty** so you can keep the HTML code autocomplete working
 
 Bonus: install **HTML-CSS-JS Prettify** package and on its preferences add **latte** and **smarty** on allowed file extensions:
 
@@ -445,6 +445,16 @@ Bonus: install **HTML-CSS-JS Prettify** package and on its preferences add **lat
     "allowed_file_extensions": ["htm", "html", "xhtml", "shtml", "xml", "svg", "latte", "smarty"],
 ```
 
+**Warning**: After you ran HTML Prettify, it can mess with the string translations as it may break the line inside multi word strings, for instance:
+```php
+{_'Name an animal', 'Animals'}
+```
+will be converted to the following and stop working until you remove the break (looking for a solution yet):
+```php
+{_'Name 
+an 
+animal', 'Animals'}
+```
 
 ## Module settings
 
